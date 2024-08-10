@@ -37,7 +37,7 @@ Sweet, isn't it?
 Install via composer:
 
 ```bash
-composer require benlu-oz/statamic-
+composer require benlu-oz/statamic-toc
 ```
 
 No further Vendor-Publishing or config files are needed.
