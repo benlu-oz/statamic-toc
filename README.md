@@ -97,25 +97,25 @@ If you prefer to save your bard-content as HTML, you can safely turn on `save_ht
 You can also use this addon with your markdown-fields. Just pass it along to the tag like this:
 
 ```
-{{  content="{markdown}" }}
+{{ toc content="{markdown}" }}
   ...
-{{ / }}
+{{ /toc }}
 ```
 
 or
 
 ```
-{{  field="{markdown_fieldname}" }}
+{{ toc field="{markdown_fieldname}" }}
   ...
-{{ / }}
+{{ /toc }}
 ```
 
-### The `` Modifier
+### The `toc` Modifier
 
 Use the modifier in your templates to add IDs to your headings:
 
 ```
-{{ text |  }}
+{{ text | toc }}
 ```
 
 Then you get something like this:
@@ -130,15 +130,15 @@ Then you get something like this:
 
 !> Note: When headings are duplicated, the ID is suffixed with a number preventing duplicated IDs which would be semantially wrong in HTML.
 
-### The `` Tag
+### The `toc` Tag
 
-You can use the ``-Tag like you would use any recursive tag (like the `nav` Tag) in your Antler-Templates:
+You can use the `toc`-Tag like you would use any recursive tag (like the `nav` Tag) in your Antler-Templates:
 
 ```html
 <ol>
-  {{  }}
+  {{ toc }}
   <li>
-    <a href="#{{ _id }}">{{ _title }}</a>
+    <a href="#{{ toc_id }}">{{ toc_title }}</a>
 
     {{ if children }}
     <ol>
@@ -146,18 +146,18 @@ You can use the ``-Tag like you would use any recursive tag (like the `nav` Tag)
     </ol>
     {{ /if }}
   </li>
-  {{ / }}
+  {{ /toc }}
 </ol>
 ```
 
 By default, this addon assumes your bard-content lives inside a content-field
 named `article`. To change that behaviour you can assign the name of the bard field with the parameter `field`:
 
-`{{  field="bard" }}`
+`{{ toc field="bard" }}`
 
 or alternatively you can pass the bard-content directly to the `content` parameter:
 
-`{{  :content="bard" }} or {{  content="{bard}" }}`
+`{{ toc :content="bard" }} or {{ toc content="{bard}" }}`
 
 If you don't want to display your ToC as a nested list you can pass the parameter `is_flat` which flattens your list to one level:
 
