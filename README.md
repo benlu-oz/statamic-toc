@@ -2,11 +2,11 @@
 ![Statamic v3](https://img.shields.io/badge/Statamic-3+-FF269E)
 ![workflow](https://github.com/goldnead/statamic-toc/actions/workflows/tests.yaml/badge.svg)
 
-# Statamic ToC
+# Statamic TOC
 
 Automatic Table Of Contents for Statamic Bard or Markdown fields or other HTML content
 
-This addon generates a Table-Of-Contents (ToC) for any Bard- or Markdown-Field in Statamic. Just like any Antlers-Tag you can use this addon in your templates with the usual Statamic-Magic Sugar:
+This addon generates a Table-Of-Contents (TOC) for any Bard- or Markdown-Field in Statamic. Just like any Antlers-Tag you can use this addon in your templates with the usual Statamic-Magic Sugar:
 
 ```html
 <div class="max-w-md mx-auto">
@@ -37,7 +37,7 @@ Sweet, isn't it?
 Install via composer:
 
 ```bash
-composer require benlu-oz/statamic-toc
+composer require benlu-oz/statamic-
 ```
 
 No further Vendor-Publishing or config files are needed.
@@ -97,25 +97,25 @@ If you prefer to save your bard-content as HTML, you can safely turn on `save_ht
 You can also use this addon with your markdown-fields. Just pass it along to the tag like this:
 
 ```
-{{ toc content="{markdown}" }}
+{{  content="{markdown}" }}
   ...
-{{ /toc }}
+{{ / }}
 ```
 
 or
 
 ```
-{{ toc field="{markdown_fieldname}" }}
+{{  field="{markdown_fieldname}" }}
   ...
-{{ /toc }}
+{{ / }}
 ```
 
-### The `toc` Modifier
+### The `` Modifier
 
 Use the modifier in your templates to add IDs to your headings:
 
 ```
-{{ text | toc }}
+{{ text |  }}
 ```
 
 Then you get something like this:
@@ -130,15 +130,15 @@ Then you get something like this:
 
 !> Note: When headings are duplicated, the ID is suffixed with a number preventing duplicated IDs which would be semantially wrong in HTML.
 
-### The `toc` Tag
+### The `` Tag
 
-You can use the `toc`-Tag like you would use any recursive tag (like the `nav` Tag) in your Antler-Templates:
+You can use the ``-Tag like you would use any recursive tag (like the `nav` Tag) in your Antler-Templates:
 
 ```html
 <ol>
-  {{ toc }}
+  {{  }}
   <li>
-    <a href="#{{ toc_id }}">{{ toc_title }}</a>
+    <a href="#{{ _id }}">{{ _title }}</a>
 
     {{ if children }}
     <ol>
@@ -146,18 +146,18 @@ You can use the `toc`-Tag like you would use any recursive tag (like the `nav` T
     </ol>
     {{ /if }}
   </li>
-  {{ /toc }}
+  {{ / }}
 </ol>
 ```
 
 By default, this addon assumes your bard-content lives inside a content-field
 named `article`. To change that behaviour you can assign the name of the bard field with the parameter `field`:
 
-`{{ toc field="bard" }}`
+`{{  field="bard" }}`
 
 or alternatively you can pass the bard-content directly to the `content` parameter:
 
-`{{ toc :content="bard" }} or {{ toc content="{bard}" }}`
+`{{  :content="bard" }} or {{  content="{bard}" }}`
 
 If you don't want to display your ToC as a nested list you can pass the parameter `is_flat` which flattens your list to one level:
 
